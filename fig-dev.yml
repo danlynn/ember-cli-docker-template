@@ -1,0 +1,13 @@
+ember: &defaults
+  image: danlynn/ember-cli:0.1.15
+  volumes:
+    - .:/myapp
+  working_dir: /myapp
+
+npm:
+  <<: *defaults
+  entrypoint: ['/usr/local/bin/npm']
+
+bower:
+  <<: *defaults
+  entrypoint: ['/usr/local/bin/bower', '--allow-root']
