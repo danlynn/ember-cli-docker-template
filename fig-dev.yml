@@ -2,7 +2,6 @@ ember: &defaults
   image: danlynn/ember-cli:0.1.15
   volumes:
     - .:/myapp
-  working_dir: /myapp
 
 npm:
   <<: *defaults
