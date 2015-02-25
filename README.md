@@ -1,4 +1,8 @@
-# How to create new project
+## Why?
+By using this project template, you can quickly be up and running developing ember-cli projects without having to install any ember development tools on your machine.
+
+## How to use this project template
+Basically, you download the source zip from the relases page, expand it, rename the directory, then execute 'docker-compose up'.  Then any npm, bower, or ember commands will automagically be executed within a docker container and will affect the ember project files in the current directory on your machine.
 
 ## Dependencies
 + boot2docker -or- docker-machine
