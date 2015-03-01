@@ -29,6 +29,8 @@ $ docker-compose up
 This will start the ember-cli server watching for file changes and refreshing the browser.  The webapp can be accessed at the IP identified via 'boot2docker ip' on port 4200 using your workstations browser. 
 
 ```
+$ docker-machine ip
+-or-
 $ boot2docker ip
 
 192.168.59.103
@@ -47,15 +49,12 @@ First, download the latest release of this template.  There is no need to clone 
 This ember-cli-docker-template starts out with only the following files:
 
 ```
-$ ls -la
-total 48
-drwxr-xr-x   8 danlynn  502   272 Feb 24 22:37 .
-drwxr-xr-x  19 danlynn  502   646 Feb 17 21:46 ..
--rwxr-xr-x@  1 danlynn  502    93 Feb 24 15:34 .rvmrc
--rw-r--r--@  1 danlynn  502  5712 Feb 24 22:37 README.md
--rw-r--r--@  1 danlynn  502   266 Feb 19 00:40 docker-compose-dev.yml
--rw-r--r--@  1 danlynn  502   151 Feb 13 08:44 docker-compose.yml
--rwxr-xr-x@  1 danlynn  502  1678 Feb 24 17:27 setup.sh
+-rwxr-xr-x@  .rvmrc
+-rw-r--r--@  README-ember-cli-docker.md
+lrwxr-xr-x@  README.md -> README-ember-cli-docker.md
+-rw-r--r--@  docker-compose-dev.yml
+-rw-r--r--@  docker-compose.yml
+-rwxr-xr-x@  setup.sh
 ```
 
 Starting with these initial files, execute the following commands to create a new ember.js project in the current directory.  Note that the template project assumes that the root dir of the template is where your ember project files will be created.
@@ -80,9 +79,13 @@ Starting with these initial files, execute the following commands to create a ne
 3. cd into that project directory.
 4. Do an 'ember init' to create a new ember project in the current project dir.
 
+Note that the original README.md is just a link to the README-ember-cli-docker.md file.  This is so that this project will show the correct README on the github homepage while still allowing the 'ember init' command to blow away the README.md link.  This way, your own project's README.md will take its place while still retaining the original README-ember-cli-docker.md.
+
 ## Performance Considerations
 
 If using VirtualBox to host your boot2docker vm then you may notice that the default VirtualBox shared folders feature is inexplicably slow.  This is a known issue with VirtualBox in general.  To work around this, reconfigure the boot2docker vm to use nfs instead.
+
+A similar issue exists if you are using VMware Fusion.  Except in this situation, the vmwarefusion driver for docker-machine simply doesn't have the shared folder functionality in place yet.  Thus, you can fall back to using NFS shares.
 
 This process is pretty straight forward if your host computer's OS is OSX or Linux.  The following are the instructions for OSX.
 
@@ -93,6 +96,14 @@ This process is pretty straight forward if your host computer's OS is OSX or Lin
 
    ```
    /Users -alldirs -maproot=danlynn -network 192.168.99.0 -mask 255.255.255.0
+   ```
+
+   The 192.168.99.0 IP assumes that you are using VirtualBox which defaults to that IP range.  If you are using VMware Fusion instead then replace that IP with 192.168.156.0 since Fusion defaults to that IP range.
+   
+   Note that you may need to create this file if it does not already exist.  It should be permissioned as follows:
+   
+   ```
+   -rw-r--r--  root  wheel  /etc/exports
    ```
 
 3. Restart the nfs daemon:
@@ -125,6 +136,8 @@ This process is pretty straight forward if your host computer's OS is OSX or Lin
    mkdir /Users
    sudo mount -t nfs -o vers=3,nolock,udp 192.168.99.1:/Users /Users
    ```
+   
+   The 192.168.99.1 IP assumes that you are using VirtualBox which defaults to that IP range.  If you are using VMware Fusion instead then replace that IP with 192.168.156.1 since Fusion defaults to that IP range.
    
 7. Restart the boot2docker vm:
 
