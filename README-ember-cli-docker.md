@@ -1,5 +1,17 @@
 ## Why?
-By using this project template, you can quickly be up and running developing ember-cli projects without having to install any ember development tools on your machine.
+
++ ### Quick setup
+  
+  By using this project template, you can quickly be up and running developing ember-cli projects without having to install any ember development tools on your machine.  All dev tools are pre-installed in a docker container ([danlynn/ember-cli](https://registry.hub.docker.com/u/danlynn/ember-cli/)) that acts just like the tools are installed directly on your machine.  
+  
++ ### Command line tools act local  
+  
+  While inside your project directory tree the ember, npm, bower tools are all redirected to run within the docker container to update the source located on directly on your machine in the project directory.  
+  
++ ### Consistent development environments
+  
+  By deploying a docker-based development environment to your team, you are assured that everyone has the exact same tools and dependency versions as each other.
+  
 
 ## How to use this project template
 Basically, you download the source zip from the relases page, expand it, rename the directory, then execute 'docker-compose up'.  Then any npm, bower, or ember commands will automagically be executed within a docker container and will affect the ember project files in the current directory on your machine.
