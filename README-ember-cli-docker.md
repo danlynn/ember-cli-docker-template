@@ -9,7 +9,7 @@ The following series of commands executed in the terminal shows this entire proc
 First, let's download this ember-cli-docker-template project from the download link found on the github releases page.  I use curl and tar below - but you can just use your browser and dbl-click the downloaded file if you like.
 
 <pre>
-<b style="color: #900000">$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.0-beta.1.tar.gz</b>
+<div style="font-weight: bold; color: #900000">$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.0-beta.1.tar.gz</div>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   147    0   147    0     0    383      0 --:--:-- --:--:-- --:--:--   383
