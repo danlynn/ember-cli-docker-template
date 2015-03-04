@@ -9,7 +9,7 @@ The following series of commands executed in the terminal shows this entire proc
 First, let's download this ember-cli-docker-template project from the download link found on the github releases page.  I use curl and tar below - but you can just use your browser and dbl-click the downloaded file if you like.
 
 <pre>
-<div style="font-weight: bold; color: #900000">$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.0-beta.1.tar.gz</div>
+<b>$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.0-beta.1.tar.gz</b>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   147    0   147    0     0    383      0 --:--:-- --:--:-- --:--:--   383
@@ -20,7 +20,7 @@ Expand the downloaded file:
 
 
 <pre>
-<b style="color: #900000">$ tar zxvf 0.2.0-beta.1.tar.gz</b>
+<b>$ tar zxvf 0.2.0-beta.1.tar.gz</b>
 x ember-cli-docker-template-0.2.0-beta.1/
 x ember-cli-docker-template-0.2.0-beta.1/.rvmrc
 x ember-cli-docker-template-0.2.0-beta.1/README-ember-cli-docker.md
@@ -33,13 +33,13 @@ x ember-cli-docker-template-0.2.0-beta.1/setup.sh
 Rename the expanded directory to whatever you want for a project name:
 
 <pre>
-<b style="color: #900000">$ mv ember-cli-docker-template-0.2.0-beta.1 my-ember-project</b>
+<b>$ mv ember-cli-docker-template-0.2.0-beta.1 my-ember-project</b>
 </pre>
 
 `cd` into the new project directory.  Notice that since I have rvm installed, it will notice the `.rvmrc` file in the project directory and ask me if I want to trust it.  I further execute the `rvm rvmrc warning ignore` command so that rvm will no longer bother me about this particular `.rvmrc` file.
 
-```
-$ cd my-ember-project/
+<pre>
+<b>$ cd my-ember-project/</b>
 You are using '.rvmrc', it requires trusting, it is slower and it is not compatible with other ruby managers,
 you can switch to '.ruby-version' using 'rvm rvmrc to [.]ruby-version'
 or ignore this warning with 'rvm rvmrc warning ignore /Users/danlynn/Documents/JavaScript/Projects/my-ember-project/.rvmrc',
@@ -56,11 +56,11 @@ to ignore the warning for all files run 'rvm rvmrc warning ignore all.rvmrcs'.
 * Do you wish to trust '/Users/danlynn/Documents/JavaScript/Projects/my-ember-project/.rvmrc'?                     *
 * Choose v[iew] below to view the contents                                                                         *
 ********************************************************************************************************************
-y[es], n[o], v[iew], c[ancel]> y
+y[es], n[o], v[iew], c[ancel]> <b>y</b>
 
-$ rvm rvmrc warning ignore /Users/danlynn/Documents/JavaScript/Projects/my-ember-project/.rvmrc
+<b>$ rvm rvmrc warning ignore /Users/danlynn/Documents/JavaScript/Projects/my-ember-project/.rvmrc</b>
 
-$ ls -la
+<b>$ ls -la</b>
 total 64
 drwxr-xr-x   8 danlynn  502   272 Mar  3 22:02 .
 drwxr-xr-x  22 danlynn  502   748 Mar  3 22:54 ..
@@ -70,27 +70,27 @@ lrwxr-xr-x   1 danlynn  502    26 Mar  3 22:02 README.md -> README-ember-cli-doc
 -rw-r--r--   1 danlynn  502   221 Mar  3 22:02 docker-compose-dev.yml
 -rw-r--r--   1 danlynn  502   157 Mar  3 22:02 docker-compose.yml
 -rwxr-xr-x   1 danlynn  502  1678 Mar  3 22:02 setup.sh
-```
+</pre>
 
 Check to see if my docker-machine vm is currently running:
 
-```
-$ docker-machine ls
+<pre>
+<b>$ docker-machine ls</b>
 NAME   ACTIVE   DRIVER         STATE     URL                          SWARM
 dev             virtualbox     Stopped
 dev2   *        vmwarefusion   Running   tcp://192.168.156.132:2376
-```
+</pre>
 
 Setup the `docker` command to use the currently running `dev2` docker-machine vm:
 
-```
-$ $(docker-machine env dev2)
-```
+<pre>
+<b>$ $(docker-machine env dev2)</b>
+</pre>
 
 Run `ember init` to populate the current project directory with all the files needed for a runnable ember application.  Note that since this is the first time that I've launched a container that uses the `ember-cli:0.2.0-beta.1` docker image, docker will automagically download and run that container.  After the container launches, the `ember init` command will be executed within that running container.  Note that since `ember init` will create a README.md file, it prompts us to confirm that we want to over-write the existing symlink file of the same name.  We do.  The symlink simply points to the actual `README-ember-cli-docker.md` file.  After answering that prompt, the `ember init` command proceeds to create the default ember app files and download all the node and bower dependencies.
 
-```
-$ ember init
+<pre>
+<b>$ ember init</b>
 Pulling image danlynn/ember-cli:0.2.0-beta.1...
 Pulling repository danlynn/ember-cli
 ac7370f7bd42: Download complete
@@ -114,7 +114,7 @@ Status: Downloaded newer image for danlynn/ember-cli:0.2.0-beta.1
 version: 0.2.0-beta.1
 Could not find watchman, falling back to NodeWatcher for file system events
 installing
-[?] Overwrite README.md? Yes, overwrite
+[?] Overwrite README.md? <b>Yes, overwrite</b>
   create .bowerrc
   create .editorconfig
   create .ember-cli
@@ -151,12 +151,12 @@ installing
 Installed packages for tooling via npm.
 Installed browser packages via Bower.
 Removing myemberproject_ember_run_1...
-```
+</pre>
 
 Launch the ember-cli server and open up the ember app in your browser using the IP of the `dev2` docker machine: `http://192.168.156.132:4200`.
 
-```
-$ docker-compose up
+<pre>
+<b>$ docker-compose up</b>
 Creating myemberproject_server_1...
 Attaching to myemberproject_server_1
 server_1 | version: 0.2.0-beta.1
@@ -169,7 +169,7 @@ server_1 | Slowest Trees                  | Total
 server_1 | -------------------------------+----------------
 server_1 | Concat: Vendor                 | 4615ms
 server_1 |
-```
+</pre>
 
 ## Dependencies
 + boot2docker -or- docker-machine
