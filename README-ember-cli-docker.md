@@ -4,7 +4,58 @@ By using this project template, you can quickly be up and running developing emb
 ## How to use this project template
 Basically, you download the source zip from the relases page, expand it, rename the directory, then execute 'docker-compose up'.  Then any npm, bower, or ember commands will automagically be executed within a docker container and will affect the ember project files in the current directory on your machine.
 
-The following series of commands executed in the terminal shows this entire process assuming that you already have a docker-machine VM created, running, and ready to run containers.
+This template can be used to either create a new project or be used with an existing project.  The following is a super quick-start for how to use this project template to create a new running ember app.  A much more detailed version appears further down in the [How to create a new project](#how-to-create-a-new-project) section.
+
+```
+$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.0-beta.1.tar.gz
+$ tar zxvf 0.2.0-beta.1.tar.gz
+$ mv ember-cli-docker-template-0.2.0-beta.1 my-ember-project
+$ cd my-ember-project/
+$ $(docker-machine env dev2)
+$ ember init
+$ docker-compose up
+```
+
+Then open the running ember app in your web browser.
+
+
+## Dependencies
++ boot2docker -or- docker-machine
++ Optionally have rvm installed for automatic command aliasing.
+
+## General Use Commands
+When cd'ing into the project directory tree in your local workstation's terminal app, rvm will automagically notice that you have switched to the project and setup the following general use commands.
++ `npm`
++ `bower`
++ `ember`
+
+If you don't have rvm installed then you may manually execute '. setup.sh' from the project root directory before using any of the general use commands.
+
+All of these commands run with the working directory set to the project root directory.  All commands execute within a docker container.
+
+## Service Commands
+
+After adding your ember project files, start the services by simply executing the regular `docker-compose up` command (used to be `fig up`).
+
+```
+$ docker-compose up
+```
+
+This will start the ember-cli server watching for file changes and refreshing the browser.  The webapp can be accessed at the IP identified via 'boot2docker ip' on port 4200 using your workstations browser.
+
+```
+$ docker-machine ip
+-or-
+$ boot2docker ip
+
+192.168.59.103
+```
+
+Then open the following in your browser:
+
++ http://192.168.59.103:4200
+
+## How to create a new project
 
 First, let's download this ember-cli-docker-template project from the download link found on the github releases page.  I use curl and tar below - but you can just use your browser and dbl-click the downloaded file if you like.
 
@@ -17,7 +68,6 @@ First, let's download this ember-cli-docker-template project from the download l
 </pre>
 
 Expand the downloaded file:
-
 
 <pre>
 <b>$ tar zxvf 0.2.0-beta.1.tar.gz</b>
@@ -170,83 +220,6 @@ server_1 | -------------------------------+----------------
 server_1 | Concat: Vendor                 | 4615ms
 server_1 |
 </pre>
-
-## Dependencies
-+ boot2docker -or- docker-machine
-+ Optionally have rvm installed for automatic command aliasing.
-
-## General Use Commands
-When cd'ing into the project directory tree in your local workstation's terminal app, rvm will automagically notice that you have switched to the project and setup the following general use commands.
-+ `npm`
-+ `bower`
-+ `ember`
-
-If you don't have rvm installed then you may manually execute '. setup.sh' from the project root directory before using any of the general use commands.
-
-All of these commands run with the working directory set to the project root directory.  All commands execute within a docker container.
-
-## Service Commands
-
-After adding your ember project files, start the services by simply executing the regular `docker-compose up` command (used to be `fig up`).
-
-```
-$ docker-compose up
-```
-
-This will start the ember-cli server watching for file changes and refreshing the browser.  The webapp can be accessed at the IP identified via 'boot2docker ip' on port 4200 using your workstations browser.
-
-```
-$ docker-machine ip
--or-
-$ boot2docker ip
-
-192.168.59.103
-```
-
-Then open the following in your browser:
-
-+ http://192.168.59.103:4200
-
-## How to create a new project
-
-First, download the latest release of this template.  There is no need to clone this template unless you plan on forking it and adding your own improvements.  The latest project template can be downloaded from:
-
-+ [https://github.com/danlynn/ember-cli-docker-template/releases](https://github.com/danlynn/ember-cli-docker-template/releases)
-
-This ember-cli-docker-template starts out with only the following files:
-
-```
--rwxr-xr-x@  .rvmrc
--rw-r--r--@  README-ember-cli-docker.md
-lrwxr-xr-x@  README.md -> README-ember-cli-docker.md
--rw-r--r--@  docker-compose-dev.yml
--rw-r--r--@  docker-compose.yml
--rwxr-xr-x@  setup.sh
-```
-
-Starting with these initial files, execute the following commands to create a new ember.js project in the current directory.  Note that the template project assumes that the root dir of the template is where your ember project files will be created.
-
-1. Rename the project root directory to whatever you want for a project name.
-2. Make sure that the boot2docker vm is running:
-
-   ```
-   $ docker-machine ls
-   -or-
-   $ boot2docker status
-   ```
-
-   Start it if it isn't running:
-
-   ```
-   $ docker-machine start dev
-   -or-
-   $ boot2docker --vbox-share=disable start
-   ```
-
-3. cd into that project directory.
-4. Do an 'ember init' to create a new ember project in the current project dir.
-
-Note that the original README.md is just a link to the README-ember-cli-docker.md file.  This is so that this project will show the correct README on the github homepage while still allowing the 'ember init' command to blow away the README.md link.  This way, your own project's README.md will take its place while still retaining the original README-ember-cli-docker.md.
 
 ## Performance Considerations
 
