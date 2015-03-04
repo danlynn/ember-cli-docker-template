@@ -9,7 +9,7 @@ The following series of commands executed in the terminal shows this entire proc
 First, let's download this ember-cli-docker-template project from the download link found on the github releases page.  I use curl and tar below - but you can just use your browser and dbl-click the downloaded file if you like.
 
 <pre>
-<b>$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.0-beta.1.tar.gz</b>
+<b style="color: #900000">$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.0-beta.1.tar.gz</b>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   147    0   147    0     0    383      0 --:--:-- --:--:-- --:--:--   383
@@ -19,8 +19,8 @@ First, let's download this ember-cli-docker-template project from the download l
 Expand the downloaded file:
 
 
-```
-$ tar zxvf 0.2.0-beta.1.tar.gz
+<pre>
+<b style="color: #900000">$ tar zxvf 0.2.0-beta.1.tar.gz</b>
 x ember-cli-docker-template-0.2.0-beta.1/
 x ember-cli-docker-template-0.2.0-beta.1/.rvmrc
 x ember-cli-docker-template-0.2.0-beta.1/README-ember-cli-docker.md
@@ -28,13 +28,13 @@ x ember-cli-docker-template-0.2.0-beta.1/README.md
 x ember-cli-docker-template-0.2.0-beta.1/docker-compose-dev.yml
 x ember-cli-docker-template-0.2.0-beta.1/docker-compose.yml
 x ember-cli-docker-template-0.2.0-beta.1/setup.sh
-```
+</pre>
 
 Rename the expanded directory to whatever you want for a project name:
 
-```
-$ mv ember-cli-docker-template-0.2.0-beta.1 my-ember-project
-```
+<pre>
+<b style="color: #900000">$ mv ember-cli-docker-template-0.2.0-beta.1 my-ember-project</b>
+</pre>
 
 `cd` into the new project directory.  Notice that since I have rvm installed, it will notice the `.rvmrc` file in the project directory and ask me if I want to trust it.  I further execute the `rvm rvmrc warning ignore` command so that rvm will no longer bother me about this particular `.rvmrc` file.
 
