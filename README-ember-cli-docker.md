@@ -11,6 +11,10 @@
 + ### Consistent development environments
   
   By deploying a docker-based development environment to your team, you are assured that everyone has the exact same tools and dependency versions as each other.
+
++ ### No need for dev tool version management
+  
+  Each project has its own docker-compose.yml file which references a specific docker image.  The versions of all the tools and their dependencies are locked-in and specific to each project.  So, unless you change that docker image reference to a newer version, you can be assured that your dev environment is stable and still at the specific versions that it was way back when you were last working on that old project.
   
 
 ## How to use this project template
