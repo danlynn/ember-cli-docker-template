@@ -286,7 +286,7 @@ This process is pretty straight forward if your host computer's OS is OSX or Lin
 	$ boot2docker ssh
 	```
 
-6. Add the following 2 lines to the end of the `/var/lib/boot2docker/profile` file in the boot2docker vm.  If the file does not already exist then you man need to update to a newer version of the boot2docker.iso.
+6. Add the following 2 lines to the end of the `/var/lib/boot2docker/profile` file in the boot2docker vm.  If the file does not already exist then you may need to update to a newer version of the boot2docker.iso.
 
    ```
    mkdir /Users
