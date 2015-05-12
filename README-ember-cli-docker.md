@@ -23,8 +23,8 @@ Basically, you download the source zip from the relases page, expand it, rename 
 This template can be used to either create a new project or be used with an existing project.  The following is a super quick-start for how to use this project template to create a new running ember app.  A much more detailed version appears further down in the [How to create a new project](#how-to-create-a-new-project) section.
 
 ```
-$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/0.2.3.tar.gz
-$ tar zxvf 0.2.3.tar.gz
+$ curl -OL https://github.com/danlynn/ember-cli-docker-template/archive/v0.2.3.tar.gz
+$ tar zxvf v0.2.3.tar.gz
 $ mv ember-cli-docker-template-0.2.3 my-ember-project
 $ cd my-ember-project/
 $ eval "$(docker-machine env dev)"
